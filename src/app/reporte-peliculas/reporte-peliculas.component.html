@@ -1,0 +1,40 @@
+<div class="filtro">
+  <div class="filt">
+  <label style="margin-left: 10px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: #7f4f4f;" for="generoFiltro"> Género:</label>
+  <select [(ngModel)]="generoFiltro" id="generoFiltro" style="width: 150px;margin-left: 10px;">
+    <option value="">Todos</option>
+    <option value="Acción">Acción</option>
+    <option value="Drama">Drama</option>
+    <!-- Agrega más opciones de género según tus necesidades -->
+  </select>
+
+  <label for="anioLanzamientoFiltro" style="margin-left: 20px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: #7f4f4f;"> Año de lanzamiento:</label>
+  <input type="number" style="border-radius: 5px;margin-left: 10px;" [(ngModel)]="anioLanzamientoFiltro"  id="anioLanzamientoFiltro">
+</div>
+<div>
+  <button (click)="aplicarFiltro()" type="button" class="boton" style="margin-bottom: 50px;">Aplicar Filtro</button>
+</div>
+</div>
+
+<div class="tabla">
+<table>
+    <tr>
+      <th>Título</th>
+      <th>Género</th>
+      <th>Año de lanzamiento</th>
+    </tr>
+    <tr *ngFor="let pelicula of peliculasFiltradas">
+      <td>{{ pelicula.titulo }}</td>
+      <td>{{ pelicula.genero }}</td>
+      <td>{{ pelicula.lanzamiento }}</td>
+    </tr>
+    
+  </table>
+</div>
+<div class="botones">
+  <button (click)="generarPDF()"  id="btn" style="margin-right: 5px;">Generar PDF</button>
+  <button (click)="exportToExcel()" type="button" class="btn btn-primary" style="margin-right: 5px;">Exportar a Excel</button>
+  <button (click)="exportToCSV()" type="button" class="btn btn-primary">Exportar a CSV</button>
+</div>
+
+  
